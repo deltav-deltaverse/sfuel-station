@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
+import { Web3Provider } from './components/web3_provider';
 
 function App() {
   return (
-    <div>
-      <h1>SFuel Station</h1>
-    </div>
+    <Web3Provider widget={<p> Testing</p>} />
   );
 }
 
