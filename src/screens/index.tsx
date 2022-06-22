@@ -10,7 +10,8 @@ const Container = styled.div``;
 
 const HomeScreen = () => {
 
-    const { connector } = useWeb3React();
+    const web3 = useWeb3React();
+    console.log("Web3: ", web3);
 
     return (
         <Container>
