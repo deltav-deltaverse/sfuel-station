@@ -8,7 +8,7 @@ import { coinbaseWallet, hooks as coinbaseWalletHooks } from '../logic/wallet/co
 import { hooks as metaMaskHooks, metaMask } from '../logic/wallet/metamask'
 import { hooks as networkHooks, network } from '../logic/wallet/network'
 import { hooks as walletConnectHooks, walletConnect } from '../logic/wallet/wallet_connect';
-import { WalletManagerScreen } from '../screens/index';
+import { HomeScreen } from '../screens/index';
 
 const connectors: [MetaMask | WalletConnect | CoinbaseWallet | Network, Web3ReactHooks][] = [
   [metaMask, metaMaskHooks],
@@ -21,7 +21,7 @@ const Web3Provider = () => {
 
   return (
     <Web3ReactProvider connectors={connectors}>
-      <WalletManagerScreen />
+      <HomeScreen />
     </Web3ReactProvider>
   )
 }
