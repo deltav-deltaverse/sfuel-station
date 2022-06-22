@@ -1,7 +1,10 @@
+import { Web3ContextType, Web3ReactHooks,  } from "@web3-react/core";
+import { Web3Provider } from '@ethersproject/providers';
+import { Connector } from "@web3-react/types";
 import styled from "styled-components";
 import { Theme } from "../utils";
 import { H2 } from "./text";
-import { WalletButton } from "./wallet";
+import { WalletButton } from "./wallet/wallet";
 
 const NavigationContainer = styled.div`
     position: fixed;
@@ -21,13 +24,17 @@ const NavigationTitle = styled.div`
     left: 10%;
 `;
 
-const Navigation = () => {
+interface Props {
+    web3: Web3ContextType<Web3Provider>;
+}
+
+const Navigation = ({ web3 } : Props) => {
     return (
         <NavigationContainer>
             <NavigationTitle>
                 <H2>sFUEL Station</H2>
             </NavigationTitle>
-            <WalletButton />
+            <WalletButton web3={web3} />
         </NavigationContainer>
     );
 }
