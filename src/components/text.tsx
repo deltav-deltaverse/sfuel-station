@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const H1 = styled.h1<any>`
-    font-size: 2.25rem;
-    color: black;
+    font-size: 5rem;
+    color: #FEFEFE;
     font-weight: bold;
     ${(props) => props.customStyle};
 `;
@@ -19,6 +19,15 @@ export const H3 = styled.h3<any>`
     color: #FEFEFE;
     ${(props) => props.customStyle};
 `;
+
+export const SubTitle = styled.h5<any>`
+    font-size: 1.75rem;
+    color: silver;
+    font-weight: bold;
+    font-style: italic;
+    ${(props) => props.customStyle};
+`;
+
 
 export const Text = styled.p<any>`
     font-size: 1.15rem;

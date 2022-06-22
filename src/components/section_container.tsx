@@ -10,4 +10,5 @@ export const SectionContainer = styled.div<Props>`
     min-height: 95vh;
     background-color: ${props => props.backgroundColor ? props.backgroundColor : 'none'};
     background-image: ${props => props.backgroundImage ? props.backgroundImage : 'none'};
+    position: relative;
 `;
