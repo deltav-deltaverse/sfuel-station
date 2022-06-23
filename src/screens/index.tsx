@@ -19,8 +19,15 @@ const HomeScreen = () => {
     
 
     const web3: Web3ContextType<Web3Provider> = useWeb3React();
-    const { connector } = web3;
+    const { accounts, connector, hooks } = web3;
     
+    const provider = connector.provider;
+    // provider?.request({
+    //     method: 'eth_requestAccounts'
+    // }).then((res) => {
+    //     console.log("Res: ", res);
+    // })
+
     useEffect(() => {
         const sFuelApi = new SFuelFaucet();
         setSFuel(sFuelApi);
