@@ -64,8 +64,8 @@ const HomeScreen = () => {
             <SectionContainer backgroundColor="linear-gradient(135deg, #DD1173, #350E47)">
                 {web3.account || web3.accounts ? <Connected sFuelApi={sFuel} /> : <Disconnected />}
             </SectionContainer>
-            <Gasless />
-            <MyLilius />
+            {/* <Gasless />
+            <MyLilius /> */}
             <Footer />
         </Container>
     )
