@@ -37,8 +37,13 @@ const WalletButton = ({ web3 } : Props) => {
         setWalletDropDown(!walletDropDown);
     }
 
+    const showConnectedOptions = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        setWalletDropDown(!walletDropDown);
+    }
+
     return (
-        <WalletContainer onClick={!walletDropDown ? showConnectionOptions : (e) => {e.preventDefault()}}>
+        <WalletContainer onClick={!walletDropDown ? showConnectionOptions : showConnectedOptions}>
             {hasConnection ? <WalletConnected walletDropDown={walletDropDown} web3={web3} /> : <WalletNotConnected walletDropDown={walletDropDown} web3={web3} />}
         </WalletContainer>
     );
