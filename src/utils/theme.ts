@@ -12,7 +12,7 @@ export const Theme: ITheme = {
     colors: {
         primary: '#DD1173',
         secondary: '#350E47',
-        background: '#333'
+        background: '#444'
     },
     borderRadius: '16px',
     border: {
@@ -21,5 +21,5 @@ export const Theme: ITheme = {
     }
 }
 
-export const BorderRadius = () => `border-radius: ${Theme.borderRadius}`;
+export const BorderRadius = () => `border-radius: ${Theme.borderRadius};`;
 export const Border = (width: string = Theme.border.defaultWith, color: string = Theme.border.defaultColor) => `border: ${width} solid ${color}`;
