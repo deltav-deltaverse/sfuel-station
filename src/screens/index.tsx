@@ -14,20 +14,20 @@ const Container = styled.div``;
 const HomeScreen = () => {
     
     const [hasInterval, setHasInterval] = useState<boolean>(false);
-    const [sFuelAPI, setSFuelAPI] = useState<SFuelFaucet | undefined>(undefined);
+    const sFuelApi = new SFuelFaucet();
     
 
     const web3: Web3ContextType<Web3Provider> = useWeb3React();
     const { connector } = web3;
     
     const checkLogic = () => {
-        if (!sFuelAPI) {
-            console.log("Build API");
-            setSFuelAPI(new SFuelFaucet());
-        }
-
-        /// Make Call
-        console.log("MAKE CALL");
+        sFuelApi.fillUp(web3.accounts)
+            .then((res) => {
+                console.log("RES: ", res)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     useEffect(() => {

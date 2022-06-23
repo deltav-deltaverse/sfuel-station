@@ -15,9 +15,10 @@ class AxiosClient {
     private _instances: IInstance;
 
     private _testnetUrls: IUrl = {
+        // "actual-secret-cebalrai": "http://localhost:8080"
         "naive-musty-merope": "https://testnet.facuet.mylilius.com/", ///  | MyLilius
-        "actual-secret-cebelrai": "https://sfuel-faucet.skale.network/" /// | Calpso
-    };
+        "actual-secret-cebalrai": "https://sfuel-faucet.skale.network/" /// | Calpso
+    }
 
     private _mainnetUrls: IUrl = {};
 
@@ -35,6 +36,10 @@ class AxiosClient {
             _map[entry[0]] = axios.create({
                 baseURL: entry[1],
                 timeout: 10000,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                }
             });
         }
         return _map;
