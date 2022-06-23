@@ -39,13 +39,14 @@ interface Props {
     chainKey: string;
 }
 
-const Row = styled.div`
+const Column = styled.div`
     width: 100%;
     margin: 0 16px;
+    height: 65%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-evenly;
 `;
 
 const BalanceListContainer = styled.div`
@@ -58,7 +59,7 @@ const AddressContainer = styled.div`
     width: 80%;
 `;
 const LoadingContainer = styled.div`
-    width: 5%;
+    
 `;
 
 const ChainCard = ({ chain, balances, minLength, chainKey } : Props) => {
@@ -75,12 +76,12 @@ const ChainCard = ({ chain, balances, minLength, chainKey } : Props) => {
                     const _isFilled: boolean | undefined = balance[1].isFilled;
 
                     return (
-                        <Row>
+                        <Column>
                             <AddressContainer><Text>{_address}</Text></AddressContainer>
                             <LoadingContainer>
-                            {_isFilled ? <Text>&#9989;</Text> : <LoadingIcon primary={true}/>}
+                                {_isFilled ? <Text customStyle={{ color: 'lightgreen'}}>sFUEL Filled Up</Text> : <LoadingIcon primary={true}/>}
                             </LoadingContainer>
-                        </Row>
+                        </Column>
                     );
                 })}
             </BalanceListContainer>
