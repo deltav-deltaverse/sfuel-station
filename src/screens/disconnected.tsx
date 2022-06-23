@@ -13,12 +13,10 @@ const PageTitleContainer = styled.div``;
 
 const Disconnected = () => {
     return (
-        <SectionContainer backgroundImage="linear-gradient(135deg, #DD1173, #350e47)">
-            <ContentContainer>
-                <H1>sFUEL Station</H1>
-                <SubTitle>Fuel for the #SKALEVERSE</SubTitle>
-            </ContentContainer>
-        </SectionContainer>
+        <ContentContainer>
+            <H1>sFUEL Station</H1>
+            <SubTitle>Fuel for the #SKALEVERSE</SubTitle>
+        </ContentContainer>
     );
 }
 
