@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { H1, SubTitle, SectionContainer, H3 } from "../components";
 import { ChainCard } from "../components/chain_card";
 import { IBalance, IStatus, SFuelFaucet } from "../logic/api";
-import { BorderRadius, Theme } from "../utils";
+import { Border, BorderRadius, Theme } from "../utils";
 
 const ConnectedContainer = styled.div`
     position: relative;
@@ -25,7 +25,8 @@ const StatusContainer = styled.div`
     height: 50%;
     width: 50%;
     // background: linear-gradient(165deg, ${Theme.colors.primary}, ${Theme.colors.secondary});
-    background: ${Theme.colors.primary};
+    // background: ${Theme.colors.primary};
+    ${Border('0.5px', 'white')};
     top: 25%;
     bottom: 25%;
     ${BorderRadius()};
@@ -70,13 +71,13 @@ const Connected = ({ sFuelApi }: Props) => {
             if (sFuelApi) {
                 setStatus(sFuelApi.status());
                 let maximum = 0;
-                Object.entries(status!).forEach((status) => {
+                status ? Object.entries(status).forEach((status) => {
                     const length = Object.keys(status[1].balances).length;
                     if (length > maximum) {
                         maximum = length;
                     }
-                });
-                const _minimum = (maximum * 200).toString() + 'px;';
+                }) : maximum = 2;
+                const _minimum = (maximum * 150).toString() + 'px;';
                 setMinLength(_minimum);
             }
         }, 1000);
@@ -100,7 +101,7 @@ const Connected = ({ sFuelApi }: Props) => {
                         const chainKey: string = _status[0];
                         const chain: string = _status[1].chain;
                         const balances: IBalance = _status[1].balances;
-                        return <ChainCard key={index} chainKey={chainKey}minLength={minLength} chain={chain} balances={balances} />
+                        return <ChainCard key={index} chainKey={chainKey} minLength={minLength} chain={chain} balances={balances} />
                     })}
                 </ChainCardsContainer>
             </StatusContainer>

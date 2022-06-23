@@ -13,9 +13,9 @@ const WalletConnected = ({ walletDropDown, web3 }: Props) => {
     const { accounts, chainId, connector } = web3;
     const connectionMedium = getName(connector);
     
-    if (walletDropDown) {
-        return <p>Connected - DD</p>
-    }
+    // if (walletDropDown) {
+    //     return <p>Connected - DD</p>
+    // }
     
     return <ConnectedWalletBase accounts={accounts} chainId={chainId} wallet={connectionMedium} />
 }

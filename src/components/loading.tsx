@@ -29,8 +29,8 @@
  const LoadingIconCss = styled.div`
      position: relative;
      margin: 0 auto;
-     width: 80px;
-     height: 80px;
+     width: 40px;
+     height: 40px;
  `;
  
 interface Props {

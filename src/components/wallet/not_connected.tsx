@@ -10,6 +10,11 @@ import * as WalletConnectConfig from '../../logic/wallet/wallet_connect';
 import * as Eip1159Config from '../../logic/wallet/injected_wallet';
 import * as GnosisSafeConfig from '../../logic/wallet/gnosis_safe';
 
+import GnosisSafeLogo from '../../config/wallet_icons/gnosis_safe.svg';
+import MetaMaskLogo from '../../config/wallet_icons/metamask.svg';
+import CoinbaseWalletLogo from '../../config/wallet_icons/coinbase_wallet.svg';
+import WalletConnectLogo from '../../config/wallet_icons/wallet_connect.svg';
+
 interface Props {
     web3: Web3ContextType<Web3Provider>;
     walletDropDown: boolean;
@@ -48,12 +53,12 @@ const WalletNotConnected = ({ walletDropDown, web3 }: Props) => {
             <DropdownTitle>
                 <H3>Select Wallet</H3>
                 <span style={{ height: '10px' }}></span>
-                <WalletOption img="#" label="MetaMask" instance={MetamaskConfig.metaMask} hooks={MetamaskConfig.hooks} />
-                <WalletOption img="#" label="Coinbase Wallet" instance={CoinbaseWalletConfig.coinbaseWallet} hooks={CoinbaseWalletConfig.hooks} />
-                <WalletOption img="#" label="WalletConnect" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks}  />
-                <WalletOption img="#" label="Gnosis Safe" instance={GnosisSafeConfig.gnosisSafe} hooks={GnosisSafeConfig.hooks}  />
-                <WalletOption img="#" label="Browser Wallet" instance={Eip1159Config.eip1193} hooks={Eip1159Config.hooks} />
-                <WalletOption img="#" label="MyLilius Wallet (~)" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks} />
+                <WalletOption img="metamask" label="MetaMask" instance={MetamaskConfig.metaMask} hooks={MetamaskConfig.hooks} />
+                <WalletOption img="coinbase_wallet" label="Coinbase Wallet" instance={CoinbaseWalletConfig.coinbaseWallet} hooks={CoinbaseWalletConfig.hooks} />
+                <WalletOption img="wallet_connect" label="WalletConnect" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks}  />
+                <WalletOption img="gnosis_safe" label="Gnosis Safe" instance={GnosisSafeConfig.gnosisSafe} hooks={GnosisSafeConfig.hooks}  />
+                {/* <WalletOption img="browser_wallet" label="Browser Wallet" instance={Eip1159Config.eip1193} hooks={Eip1159Config.hooks} /> */}
+                <WalletOption img="mylilius_wallet" label="MyLilius Wallet" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks} />
             </DropdownTitle>
         </Dropdown>
     )
