@@ -2,10 +2,9 @@ import { useWeb3React, Web3ContextType, Web3ReactProvider } from '@web3-react/co
 import { Web3Provider } from '@ethersproject/providers';
 import styled from "styled-components";
 import { Footer, Navigation } from '../components';
-import { Disconnected } from './home/disconnected';
-import { Gasless } from './home/gasless';
-import { MyLilius } from './home/mylilius';
-import { Connector } from '@web3-react/types';
+import { Disconnected } from './disconnected';
+import { Gasless } from './gasless';
+import { MyLilius } from './mylilius';
 import { useEffect, useState } from 'react';
 
 const Container = styled.div``;

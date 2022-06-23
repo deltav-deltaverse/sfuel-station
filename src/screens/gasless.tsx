@@ -1,4 +1,4 @@
-import { SectionContainer } from "../../components";
+import { SectionContainer } from "../components";
 
 const Gasless = () => {
     return (

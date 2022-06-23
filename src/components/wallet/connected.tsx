@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { Web3ContextType, Web3ReactHooks,  } from "@web3-react/core";
+import { Web3ContextType } from "@web3-react/core";
 import { Web3Provider } from '@ethersproject/providers';
 
 interface Props {
