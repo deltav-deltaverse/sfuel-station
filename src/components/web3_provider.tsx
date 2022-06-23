@@ -1,4 +1,3 @@
-import React from 'react';
 import { CoinbaseWallet } from '@web3-react/coinbase-wallet'
 import { Web3ReactHooks, Web3ReactProvider } from '@web3-react/core'
 import { MetaMask } from '@web3-react/metamask'
