@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Web3ContextType, Web3ReactHooks,  } from "@web3-react/core";
 import { Web3Provider } from '@ethersproject/providers';
 import { BorderRadius, Theme } from "../../utils";
-import { H3 } from "../text";
+import { H3, Text } from "../text";
 import { WalletOption } from "./option";
 import * as MetamaskConfig from "../../logic/wallet/metamask";
 import * as CoinbaseWalletConfig from '../../logic/wallet/coinbase_wallet';
@@ -39,7 +39,7 @@ const WalletNotConnected = ({ walletDropDown, web3 }: Props) => {
 
     if (!walletDropDown) {
         return (
-            <p>Click to Connect Wallet</p>
+            <Text customStyle="font-weight: bold;">Click to Connect Wallet</Text>
         );
     }
 
@@ -51,6 +51,7 @@ const WalletNotConnected = ({ walletDropDown, web3 }: Props) => {
                 <WalletOption img="#" label="MetaMask" instance={MetamaskConfig.metaMask} hooks={MetamaskConfig.hooks} />
                 <WalletOption img="#" label="Coinbase Wallet" instance={CoinbaseWalletConfig.coinbaseWallet} hooks={CoinbaseWalletConfig.hooks} />
                 <WalletOption img="#" label="WalletConnect" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks}  />
+                <WalletOption img="#" label="Gnosis Safe" instance={GnosisSafeConfig.gnosisSafe} hooks={GnosisSafeConfig.hooks}  />
                 <WalletOption img="#" label="Browser Wallet" instance={Eip1159Config.eip1193} hooks={Eip1159Config.hooks} />
                 <WalletOption img="#" label="MyLilius Wallet (~)" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks} />
             </DropdownTitle>

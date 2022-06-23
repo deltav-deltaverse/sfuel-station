@@ -1,4 +1,4 @@
-import { Web3ContextType, Web3ReactHooks,  } from "@web3-react/core";
+import { Web3ContextType } from "@web3-react/core";
 import { Web3Provider } from '@ethersproject/providers';
 import styled from "styled-components";
 import { BorderRadius, Theme } from "../../utils";
@@ -9,7 +9,7 @@ import { WalletNotConnected } from "./not_connected";
 const WalletContainer = styled.div`
     position: absolute;
     right: 5%;
-    min-height: 65%;
+    min-height: 85%;
     height: auto;
     width: 15%;
     background: ${Theme.colors.secondary};

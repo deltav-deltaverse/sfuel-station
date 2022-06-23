@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1, SubTitle, SectionContainer } from "../../components";
+import { H1, SubTitle, SectionContainer } from "../components";
 
 const ContentContainer = styled.div`
     position: absolute;

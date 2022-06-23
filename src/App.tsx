@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { ApplicationContainer } from './components';
 import { Web3Provider } from './components/web3_provider';
