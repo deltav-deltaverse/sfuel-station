@@ -56,7 +56,7 @@ const WalletNotConnected = ({ walletDropDown, web3 }: Props) => {
                 <WalletOption img="metamask" label="MetaMask" instance={MetamaskConfig.metaMask} hooks={MetamaskConfig.hooks} />
                 <WalletOption img="coinbase_wallet" label="Coinbase Wallet" instance={CoinbaseWalletConfig.coinbaseWallet} hooks={CoinbaseWalletConfig.hooks} />
                 <WalletOption img="wallet_connect" label="WalletConnect" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks}  />
-                <WalletOption img="gnosis_safe" label="Gnosis Safe" instance={GnosisSafeConfig.gnosisSafe} hooks={GnosisSafeConfig.hooks}  />
+                {/* <WalletOption img="gnosis_safe" label="Gnosis Safe" instance={GnosisSafeConfig.gnosisSafe} hooks={GnosisSafeConfig.hooks}  /> */}
                 {/* <WalletOption img="browser_wallet" label="Browser Wallet" instance={Eip1159Config.eip1193} hooks={Eip1159Config.hooks} /> */}
                 <WalletOption img="mylilius_wallet" label="MyLilius Wallet" instance={WalletConnectConfig.walletConnect} hooks={WalletConnectConfig.hooks} />
             </DropdownTitle>
