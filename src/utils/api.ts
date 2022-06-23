@@ -15,9 +15,9 @@ class AxiosClient {
     private _instances: IInstance;
 
     private _testnetUrls: IUrl = {
-        // "actual-secret-cebalrai": "http://localhost:8080"
-        "naive-musty-merope": "https://testnet.facuet.mylilius.com/", ///  | MyLilius
-        "actual-secret-cebalrai": "https://sfuel-faucet.skale.network/" /// | Calpso
+        "naive-musty-merope": "http://localhost:8080"
+        // "naive-musty-merope": "https://testnet.facuet.mylilius.com/", ///  | MyLilius
+        // "actual-secret-cebalrai": "https://sfuel-faucet.skale.network/" /// | Calpso
     }
 
     private _mainnetUrls: IUrl = {};
@@ -43,15 +43,7 @@ class AxiosClient {
             });
         }
         return _map;
-        // Object.entries(_urls).map(({ entry }: IUrl ): {[key: string]: AxiosInstance} => {
-            
-        // });
-        // return Object.entries(_urls).map(({ entry }: IUrl ): {[key: string]: AxiosInstance} => {
-            // return axios.create({
-            //     baseURL: _url,
-            //     timeout: 10000,
-            // });
-        // });
+        
     }
 
     get instances() : IInstance {
