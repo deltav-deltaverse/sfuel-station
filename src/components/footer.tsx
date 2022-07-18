@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Theme } from "../utils";
 import { Text } from "./text";
 
 const FooterContainer = styled.div`
@@ -13,6 +12,11 @@ const FooterContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media(max-width: 800px) {
+        p {
+            font-size: 0.85rem;
+        }
+    }
 `;
 
 const Footer = () => {

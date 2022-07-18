@@ -25,9 +25,26 @@ const WalletOptionContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    @media(max-width: 1400px) {
+        min-height: 35px;
+        margin: 4px 5%;
+    }
+    @media(max-width: 800px) {
+        min-height: 35px;
+        margin: 16px 5%;
+    }
     min-height: 35px;
     position: relative;
     p {
+        @media(max-width: 1400px) {
+            font-size: 1rem;
+            width: 75%;
+            text-align: left;
+        }
+        @media(max-width: 800px) {
+            font-size: 1rem;
+            width: 85%;
+        }
         position: absolute;
         left: 25%;
     }
@@ -40,6 +57,7 @@ const SVGContainer = styled.div`
     position: absolute;
     left: 10%;
     height: 75%;
+    width: 10%;
 `;
 
 interface Props {
@@ -63,30 +81,16 @@ const WalletOption = ({ label, img, instance, hooks } : Props ) => {
         'mylilius_wallet': <MyLiliusWalletSVG />
     };
 
-    const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks;
+    const { useChainId } = hooks;
 
 
-    const chainId = useChainId() ?? 1;
+    const chainId = useChainId();
     const connect = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         instance.activate(chainId)
             .then(() => console.log("Success"))
             .catch((err) => console.log("Error: ", err));
     }
-
-    // let svg;
-    // if (img === 'coinbase_wallet') {
-    //     svg = <CoinbaseWalletSVG />;
-    // } else if (img === 'gnosis_safe') {
-    //     svg = <GnosisSafeSVG />
-    //     // svg = <img style={{ width: '24px', height: '24px', zIndex: '100000'}}src={GnosisSafeSVG} />;
-    // } else if (img === 'metamask') {
-    //     svg = <MetamaskSVG />
-    // }  else {
-    //     svg = <span></span>;
-    // }
-    // console.log(img, svg);
-
     return (
         <WalletOptionContainer onClick={connect}>
             <SVGContainer>

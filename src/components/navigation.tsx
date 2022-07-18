@@ -1,4 +1,4 @@
-import { Web3ContextType, Web3ReactHooks,  } from "@web3-react/core";
+import { Web3ContextType } from "@web3-react/core";
 import { Web3Provider } from '@ethersproject/providers';
 import styled from "styled-components";
 import { H2 } from "./text";
@@ -20,6 +20,12 @@ const NavigationContainer = styled.div`
 const NavigationTitle = styled.div`
     position: absolute;
     left: 10%;
+    h2 {
+        @media(max-width: 800px) {
+            font-size: 1.25rem;
+            top: 5%;
+        }
+    }
 `;
 
 interface Props {
