@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { H1, SubTitle, SectionContainer, H3 } from "../components";
+import { H3 } from "../components";
 import { ChainCard } from "../components/chain_card";
-import { IBalance, IStatus, SFuelFaucet } from "../logic/api";
-import { Border, BorderRadius, Theme } from "../utils";
+import { BorderRadius } from "../utils";
 
 const ConnectedContainer = styled.div`
     position: relative;
@@ -11,23 +9,13 @@ const ConnectedContainer = styled.div`
     height: 100vh;
 `;
 
-const ContentContainer = styled.div`
-    position: absolute;
-    bottom: 15%;
-    left: 7.5%;
-    height: 100px;
-    width: 50%;
-`;
 
 const StatusContainer = styled.div`
     position: absolute;
     right: 5%;
-    height: 50%;
-    width: 50%;
-    // background: linear-gradient(165deg, ${Theme.colors.primary}, ${Theme.colors.secondary});
-    // background: ${Theme.colors.primary};
-    ${Border('0.5px', 'white')};
-    top: 25%;
+    height: 75%;
+    width: 85%;
+    top: 10%;
     bottom: 25%;
     ${BorderRadius()};
     display: flex;
@@ -46,7 +34,8 @@ const StatusTitleContainer = styled.div`
 `;
 
 const ChainCardsContainer = styled.div`
-    height: 90%;
+    min-height: 90%;
+    height: auto;
     width: 100%;
     display: flex;
     border-radius: 0 0 16px 16px;
@@ -54,54 +43,51 @@ const ChainCardsContainer = styled.div`
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-evenly;
+    @media(max-width: 800px) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
 `;
 
-interface Props {
-    sFuelApi?: SFuelFaucet;
-}
+const ChainCardMargin = styled.div`
+    width: 28%;
+    height: 22.5%;
+    @media(max-width: 1024px) {
+        width: 45%;
+        margin: 4px 8px;
+    }
+    @media(max-width: 800px) {
+        width: 100%;
+        margin: 16px 0;
+    }
+`;
 
 
-const Connected = ({ sFuelApi }: Props) => {
+const _devKeys: string[] = ['naive-musty-merope', 'actual-secret-cebalrai'];
+const _devNames: string[] = ['MyLilius', 'Calypso'];
 
-    const [status, setStatus] = useState<IStatus | undefined>(undefined);
-    const [minLength, setMinLength] = useState<string>('100px');
+const _prodKeys: string[] = [];
+const _prodNames: string[] = [];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (sFuelApi) {
-                setStatus(sFuelApi.status());
-                let maximum = 0;
-                status ? Object.entries(status).forEach((status) => {
-                    const length = Object.keys(status[1].balances).length;
-                    if (length > maximum) {
-                        maximum = length;
-                    }
-                }) : maximum = 2;
-                const _minimum = (maximum * 150).toString() + 'px;';
-                setMinLength(_minimum);
-            }
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [sFuelApi?.status()]);
+const Connected = () => {
+    const keys: string[] = process.env.REACT_APP_ENV === 'development' ? _devKeys : _prodKeys;
+    const names: string[] = process.env.REACT_APP_ENV === 'development' ? _devNames : _prodNames;
 
 
     return (
         <ConnectedContainer>
-            <ContentContainer>
-                <H1>sFUEL Station</H1>
-                <SubTitle>Fuel for the #SKALEVERSE</SubTitle>
-            </ContentContainer>
             <StatusContainer>
                 <StatusTitleContainer>
                     <H3 customStyle="text-align: center;">sFUEL Status</H3>
                 </StatusTitleContainer>
                 <ChainCardsContainer>
-                    {status && Object.entries(status).map((_status, index) => {
-                        const chainKey: string = _status[0];
-                        const chain: string = _status[1].chain;
-                        const balances: IBalance = _status[1].balances;
-                        return <ChainCard key={index} chainKey={chainKey} minLength={minLength} chain={chain} balances={balances} />
+                    {keys.map((chainKey, index) => {
+                        return (
+                            <ChainCardMargin>
+                                {ChainCard(chainKey, names[index])}
+                            </ChainCardMargin>
+                        );
                     })}
                 </ChainCardsContainer>
             </StatusContainer>

@@ -1,8 +1,8 @@
 {
-  "short_name": "Safe App",
-  "name": "Gnosis Safe App Starter",
-  "description": "Describe your Safe App here",
-  "iconPath": "/src/config/wallet_icons/wallet_connect.svg",
+  "short_name": "sFUEL Station",
+  "name": "sFUEL Station",
+  "description": "sFUEL Station for the #SKALEVERSE",
+  "iconPath": "myl_logo.png",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,12 +10,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "myl_logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "myl_logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
