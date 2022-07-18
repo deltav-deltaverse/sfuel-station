@@ -14,12 +14,13 @@ interface Props {
 }
 
 const ConnectedWalletBaseContainer = styled.div`
-    height: 100%;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    background: blue;
 `;
 
 const SVGContainer = styled.div`
@@ -43,7 +44,7 @@ const ConnectedWalletBase = ({ accounts, chainId, wallet }: Props) => {
         'MyLilius Wallet': <MyLiliusWalletSVG />
     };
 
-    const account = accounts![0].substring(0, 12) + '...' + accounts![0].substring(32);
+    const account = accounts![0].substring(0, 8) + '...' + accounts![0].substring(34);
 
     return (
         <ConnectedWalletBaseContainer>

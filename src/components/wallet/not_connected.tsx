@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Web3ContextType, Web3ReactHooks,  } from "@web3-react/core";
+import { Web3ContextType } from "@web3-react/core";
 import { Web3Provider } from '@ethersproject/providers';
 import { BorderRadius, Theme } from "../../utils";
 import { H3, Text } from "../text";
@@ -7,13 +7,13 @@ import { WalletOption } from "./option";
 import * as MetamaskConfig from "../../logic/wallet/metamask";
 import * as CoinbaseWalletConfig from '../../logic/wallet/coinbase_wallet';
 import * as WalletConnectConfig from '../../logic/wallet/wallet_connect';
-import * as Eip1159Config from '../../logic/wallet/injected_wallet';
-import * as GnosisSafeConfig from '../../logic/wallet/gnosis_safe';
+// import * as Eip1159Config from '../../logic/wallet/injected_wallet';
+// import * as GnosisSafeConfig from '../../logic/wallet/gnosis_safe';
 
-import GnosisSafeLogo from '../../config/wallet_icons/gnosis_safe.svg';
-import MetaMaskLogo from '../../config/wallet_icons/metamask.svg';
-import CoinbaseWalletLogo from '../../config/wallet_icons/coinbase_wallet.svg';
-import WalletConnectLogo from '../../config/wallet_icons/wallet_connect.svg';
+// import GnosisSafeLogo from '../../config/wallet_icons/gnosis_safe.svg';
+// import MetaMaskLogo from '../../config/wallet_icons/metamask.svg';
+// import CoinbaseWalletLogo from '../../config/wallet_icons/coinbase_wallet.svg';
+// import WalletConnectLogo from '../../config/wallet_icons/wallet_connect.svg';
 
 interface Props {
     web3: Web3ContextType<Web3Provider>;
@@ -21,6 +21,7 @@ interface Props {
 }
 
 const Dropdown = styled.div`
+    background: red;
     position: absolute;
     top: 0;
     width: 100%;
@@ -32,19 +33,32 @@ const Dropdown = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    @media(max-width: 800px) {
+        width: 65vw;
+    }
     
 `;
 
 const DropdownTitle = styled.div`
     margin: 8px 0;
     text-align: center;
+    h3 {
+        @media(max-width: 800px) {
+            font-size: 0.35rem;
+            width: 85%;
+        }
+        @media(max-width: 1400px) {
+            font-size: 0.75rem;
+            width: 100%;
+        }
+    }
 `;
 
 const WalletNotConnected = ({ walletDropDown, web3 }: Props) => {
 
     if (!walletDropDown) {
         return (
-            <Text customStyle="font-weight: bold;">Click to Connect Wallet</Text>
+            <Text customStyle="font-weight: bold; @media(max-width: 800px) { font-size: 0.75rem; }">Connect Wallet</Text>
         );
     }
 

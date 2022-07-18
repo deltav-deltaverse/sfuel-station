@@ -6,13 +6,6 @@
   "author": "TheGreatAxios",
   "dependencies": {
     "@ethersproject/experimental": "^5.6.3",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.41",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
     "@web3-react/coinbase-wallet": "8.0.33-beta.0",
     "@web3-react/core": "8.0.33-beta.0",
     "@web3-react/eip1193": "8.0.25-beta.0",
@@ -24,23 +17,23 @@
     "@web3-react/url": "8.0.24-beta.0",
     "@web3-react/walletconnect": "8.0.34-beta.0",
     "axios": "^0.27.2",
-    "buffer": "^6.0.3",
+    "bn.js": "^5.2.1",
     "ethers": "^5.6.9",
-    "process": "^0.11.10",
     "react": "^18.2.0",
-    "react-app-rewired": "^2.2.1",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "4.0.3",
     "styled-components": "^5.3.5",
-    "typescript": "^4.7.4",
-    "util": "^0.12.4",
-    "web-vitals": "^2.1.4"
+    "web3": "1.3.0"
   },
   "scripts": {
-    "start": "GENERATE_SOURCEMAP=false react-app-rewired start",
+    "start": "react-scripts start",
+    "start:classic": "GENERATE_SOURCEMAP=false react-app-rewired start",
     "build": "react-scripts build",
+    "build:testnet": "REACT_APP_ENV=development NODE_ENV=development react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy:testnet": "npm run build:testnet && aws s3 sync build/ s3://sfuel-station-testnet",
+    "deploy:production": "build && aws s3 sync build/ s3://sfuel-station-testnet"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +54,15 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.25"
+    "@types/styled-components": "^5.1.25",
+    "@types/web3": "^1.2.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.41",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "typescript": "^4.7.4"
   }
 }

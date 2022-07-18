@@ -19,6 +19,11 @@ export const H3 = styled.h3<any>`
     color: #FEFEFE;
     ${(props) => props.customStyle};
 `;
+export const H4 = styled.h3<any>`
+    font-size: 1.5rem;
+    color: #FEFEFE;
+    ${(props) => props.customStyle};
+`;
 
 export const SubTitle = styled.h5<any>`
     font-size: 1.75rem;
