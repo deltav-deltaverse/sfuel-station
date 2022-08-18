@@ -20,6 +20,7 @@ const _prodContracts: {[key: string]: {[key: string]: string}} = {
     general: {
         'elated-tan-skat': '0x2B267A3e49b351DEdac892400a530ABb2f899d23',
         'honorable-steel-rasalhague': '0x02891b34B7911A9C68e82C193cd7A6fBf0c3b30A',
+        'affectionate-immediate-pollux': '0xFcE116dB669A22CF811D86F0591F8AeCA68abB01'
     }
 }
 

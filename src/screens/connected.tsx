@@ -94,13 +94,18 @@ const _devEntities: IEntity[] = [
 
 const _prodEntities: IEntity[] = [
     {
-        chainKey: 'elated-tan-skat',
-        chainName: 'Europa',
+        chainKey: 'affectionate-immediate-pollux',
+        chainName: 'CryptoBlades',
         isDevelopment: false
     },
     {
         chainKey: 'honorable-steel-rasalhague',
         chainName: 'Calypso',
+        isDevelopment: false
+    },
+    {
+        chainKey: 'elated-tan-skat',
+        chainName: 'Europa',
         isDevelopment: false
     },
     // {
