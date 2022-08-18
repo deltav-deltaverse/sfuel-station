@@ -7,7 +7,7 @@ const SFUEL: AddEthereumChainParameter['nativeCurrency'] = {
     decimals: 18
 };
 
-export const CHAINS: { [chainId: number]: ChainInformation } = {
+export const CHAINS: { [chainId: number]: ChainInformation} = process.env.REACT_APP_ENV === 'development' ? {
     1258188407: {
       urls: ['https://staging-v2.skalenodes.com/v1/naive-musty-merope'],
       name: 'MyLilius SKALE Chain',
@@ -19,5 +19,18 @@ export const CHAINS: { [chainId: number]: ChainInformation } = {
         name: 'Calypso NFT Hub',
         nativeCurrency: SFUEL,
         blockExplorerUrls: ['https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com'],
+    }
+} : {
+    1564830818: {
+        urls: ['https://mainnet.skalenodes.com/v1/honorable-steel-rasalhague'],
+        name: 'Calypso SKALE Chain',
+        nativeCurrency: SFUEL,
+        blockExplorerUrls: ['https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com/']
+    },
+    2046399126: {
+        urls: ['https://mainnet.skalenodes.com/v1/elated-tan-skat'],
+        name: 'Europa SKALE Chain',
+        nativeCurrency: SFUEL,
+        blockExplorerUrls: ['https://elated-tan-skat.explorer.mainnet.skalenodes.com/']
     }
 }

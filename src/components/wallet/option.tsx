@@ -84,10 +84,10 @@ const WalletOption = ({ label, img, instance, hooks } : Props ) => {
     const { useChainId } = hooks;
 
 
-    const chainId = useChainId();
+    // const chainId = useChainId();
     const connect = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        instance.activate(chainId)
+        instance.activate()
             .then(() => console.log("Success"))
             .catch((err) => console.log("Error: ", err));
     }

@@ -7,7 +7,10 @@ import { WalletButton } from "./wallet/wallet";
 const NavigationContainer = styled.div`
     position: fixed;
     z-index: 1000;
-    top: 0;
+    top: 65px;
+    @media(max-width: 600px) {
+        top: 85px;
+    }
     left: 0;
     right: 0;
     height: 5vh;

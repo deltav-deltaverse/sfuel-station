@@ -63,17 +63,56 @@ const ChainCardMargin = styled.div`
     }
 `;
 
+export interface IEntity {
+    isDevelopment: boolean;
+    chainName: string;
+    chainKey: string;
+}
 
-const _devKeys: string[] = ['naive-musty-merope', 'actual-secret-cebalrai'];
-const _devNames: string[] = ['MyLilius', 'Calypso'];
+const _devEntities: IEntity[] = [
+    {
+        chainKey: 'naive-musty-merope',
+        chainName: 'MyLilius',
+        isDevelopment: false
+    },
+    {
+        chainKey: 'actual-secret-cebalrai',
+        chainName: 'Calypso',
+        isDevelopment: false
+    },
+    {
+        chainKey: 'actual-secret-cebalrai',
+        chainName: 'Calypso',
+        isDevelopment: true
+    },
+    {
+        chainKey: 'whispering-turais',
+        chainName: 'Razor Network',
+        isDevelopment: false
+    }
+];
 
-const _prodKeys: string[] = [];
-const _prodNames: string[] = [];
+const _prodEntities: IEntity[] = [
+    {
+        chainKey: 'elated-tan-skat',
+        chainName: 'Europa',
+        isDevelopment: false
+    },
+    {
+        chainKey: 'honorable-steel-rasalhague',
+        chainName: 'Calypso',
+        isDevelopment: false
+    },
+    // {
+    //     chainKey: 'honorable-steel-rasalhague',
+    //     chainName: 'Calypso',
+    //     isDevelopment: true
+    // }
+];
+
 
 const Connected = () => {
-    const keys: string[] = process.env.REACT_APP_ENV === 'development' ? _devKeys : _prodKeys;
-    const names: string[] = process.env.REACT_APP_ENV === 'development' ? _devNames : _prodNames;
-
+    const entities: IEntity[] = process.env.REACT_APP_ENV === 'development' ? _devEntities : _prodEntities;
 
     return (
         <ConnectedContainer>
@@ -82,10 +121,10 @@ const Connected = () => {
                     <H3 customStyle="text-align: center;">sFUEL Status</H3>
                 </StatusTitleContainer>
                 <ChainCardsContainer>
-                    {keys.map((chainKey, index) => {
+                    {entities.map((entity: IEntity, index: number) => {
                         return (
-                            <ChainCardMargin>
-                                {ChainCard(chainKey, names[index])}
+                            <ChainCardMargin key={index}>
+                                {ChainCard(entity.chainKey, entity.chainName, entity.isDevelopment)}
                             </ChainCardMargin>
                         );
                     })}

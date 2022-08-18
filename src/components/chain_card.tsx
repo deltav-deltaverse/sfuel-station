@@ -37,11 +37,11 @@ const ChainTitleContainer = styled.div`
     left: 2.5%;
     h4 {
         color: white;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     p  {
         color: white;
-        font-size: 1.15rem;
+        font-size: 0.95rem;
     }
     @media(max-width: 800px) {
         h4 {
@@ -110,7 +110,7 @@ const FillUpButton = styled.button`
     }
 `;
 
-const ChainCard = (chainKey: string, chainName: string) => {
+const ChainCard = (chainKey: string, chainName: string, isDeveloper: boolean) => {
     const { account } = useWeb3React();
 
     const [currentAccount, setCurrentAccount] = useState<string>();
@@ -161,7 +161,7 @@ const ChainCard = (chainKey: string, chainName: string) => {
         try {
             if (account) {
                 setRunningPow(true);
-                let response: [string, boolean] = await runPoW(account, rpcUrl, chainKey);
+                let response: [string, boolean] = await runPoW(account, rpcUrl, chainKey, isDeveloper);
                 let status: boolean = response[1];
                 if (!status) {
                     await watchStatus(response[0]);
@@ -182,20 +182,31 @@ const ChainCard = (chainKey: string, chainName: string) => {
         }
     }
 
+    const buildBalance = () : string => {
+        const asString: string = ethers.utils.formatEther(BigNumber.from(balance));
+        const asNumber: number = Number(asString);
+        if (asNumber >= 1 && asNumber <= 5) {
+            return asNumber.toFixed(3).toString();
+        } else if (asNumber > 5) {
+            return asNumber.toFixed(0).toString();
+        }
+        return asString;
+    }
+
     return (
         <ChainCardContainer>
             <ChainTitleContainer>
-                <h4>{chainName}</h4>
+                <h4>{chainName} {isDeveloper && 'Developer'}</h4>
                 <p>{chainKey}</p>
             </ChainTitleContainer>
             <ChainBalanceContainer>
-                {balance && <p>{ethers.utils.formatEther(BigNumber.from(balance))} sFUEL</p>}
+                {balance && <p>{buildBalance()} sFUEL</p>}
             </ChainBalanceContainer>
             <BalanceListContainer>
                 <Column>
                     {balance && !runningPow && !isLoading ? 
                         <>
-                        {balance && Number(balance) >= Number(ethers.utils.parseEther('0.00005')) 
+                        {balance && Number(balance) >= (isDeveloper ? Number(ethers.utils.parseEther('0.1')) : Number(ethers.utils.parseEther('0.005')))
                             ? <Text customStyle={{ color: 'lightgreen'}}>sFUEL Filled Up</Text>
                             : <FillUpButton onClick={async(e) => {
                                 e.preventDefault();

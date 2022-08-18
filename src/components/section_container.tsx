@@ -5,9 +5,8 @@ interface Props {
     backgroundImage?: string;
 }
 
-export const SectionContainer = styled.div<Props>`
+export const SectionContainer = styled.div`
     width: 100%;
     min-height: 100vh;
-    background: ${props => props.backgroundColor};
     position: relative;
 `;

@@ -2,7 +2,7 @@ import { SectionContainer } from "../components";
 
 const Gasless = () => {
     return (
-        <SectionContainer backgroundColor="blue">
+        <SectionContainer>
             <p>Gasless</p>
         </SectionContainer>
     );

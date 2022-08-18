@@ -30,10 +30,11 @@
     "start:classic": "GENERATE_SOURCEMAP=false react-app-rewired start",
     "build": "react-scripts build",
     "build:testnet": "REACT_APP_ENV=development NODE_ENV=development react-scripts build",
+    "build:mainnet": "REACT_APP_ENV=production NODE_ENV=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy:testnet": "npm run build:testnet && aws s3 sync build/ s3://sfuel-station-testnet",
-    "deploy:production": "build && aws s3 sync build/ s3://sfuel-station-testnet"
+    "deploy:production": "npm run build:mainnet && aws s3 sync build/ s3://sfuel-station"
   },
   "eslintConfig": {
     "extends": [
